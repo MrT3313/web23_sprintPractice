@@ -9,6 +9,7 @@ const token =
 app.use(bodyParser.json());
 app.use(CORS());
 
+// INITIAL STATE
 let videoGames = [
     {
         title: "GTAV",
@@ -52,8 +53,10 @@ let videoGames = [
     },
 ];
 
+// INCREMENT IT
 let nextId = 9;
 
+// AUTHENTICATION
 function authenticator(req, res, next) {
     const { authorization } = req.headers;
     if (authorization === token) {
@@ -64,6 +67,7 @@ function authenticator(req, res, next) {
 }
 
 app.post("/api/login", (req, res) => {
+    console.log(req.body)
     const { username, password } = req.body;
     if (username === "test" && password === "test") {
         req.loggedIn = true;
