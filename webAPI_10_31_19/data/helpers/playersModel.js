@@ -9,7 +9,7 @@ module.exports = {
 };
 
 function find() {
-    console.log('playerModel => find()')
+    console.log('playersModel => find()')
     return db('PLAYERS')
 }
 
