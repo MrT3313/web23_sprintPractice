@@ -66,22 +66,22 @@ function authenticator(req, res, next) {
     }
 }
 
-app.post("/api/login", (req, res) => {
-    console.log(req.body)
-    const { username, password } = req.body;
-    if (username === "test" && password === "test") {
-        req.loggedIn = true;
-        setTimeout(() => {
-            res.status(200).json({
-            payload: token
-            });
-        }, 1000);
-    } else {
-        res
-            .status(403)
-            .json({ error: "Username or Password incorrect. Please see Readme" });
-    }
-    });
+    app.post("/api/login", (req, res) => {
+        console.log(req.body)
+        const { username, password } = req.body;
+        if (username === "test" && password === "test") {
+            req.loggedIn = true;
+            setTimeout(() => {
+                res.status(200).json({
+                payload: token
+                });
+            }, 1000);
+        } else {
+            res
+                .status(403)
+                .json({ error: "Username or Password incorrect. Please see Readme" });
+        }
+        });
 
     app.get("/api/videoGames", authenticator, (req, res) => {
         res.send(videoGames);
