@@ -1,6 +1,5 @@
-# web23_sprintPractice
+# Web23 - Sprint Practice Projects
 
 
-1) Make Store
-2) combine reducer
-3) reducer & first action creator
+1) Advanced State Management
+2) Advanced Web Applications
