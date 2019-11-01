@@ -8,8 +8,6 @@ exports.up = function(knex) {
         tbl.string('city')
         tbl.string('mascotName')
             .unique()
-        
-        
     })
 };
 

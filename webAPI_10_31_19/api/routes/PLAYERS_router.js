@@ -33,21 +33,30 @@
         
     })
 // - PUT - // 
-    router.put('/:id', async(req,res) => {
+    router.put('/:id',  async(req,res) => {
     console.log('playersRouter put/')
     const {id} = req.params
     console.log(id)
     const updatedPlayer = req.body
     console.log(updatedPlayer)
         // -- //
-        playersModel.update(id, updatedPlayer)
-            .then( updateResult => {
-                console.log('updateResult', updateResult )
+        // V1
+            try {
+                const updateResult = await playersModel.update(id, updatedPlayer)
+                    console.log(updateResult)
                 res.status(200).json( updateResult )
-            })
-            .catch( err => {
+            } catch {
                 res.status(500).json( err )
-            })
+            }
+        // V2
+        // playersModel.update(id, updatedPlayer)
+        //     .then( updateResult => {
+        //         console.log('updateResult', updateResult )
+        //         res.status(200).json( updateResult )
+        //     })
+        //     .catch( err => {
+        //         res.status(500).json( err )
+        //     })
     })
 // - DEL - // 
     router.delete('/:id', async(req,res) => {
